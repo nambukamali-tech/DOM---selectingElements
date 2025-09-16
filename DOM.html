@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>First DOM demo</title>
+        <style>
+            .p{
+             font-weight:bold;
+             color:white;
+            }
+            .block
+            {
+                background: skyblue;
+            }
+            .header
+            {
+                font-size: x-small;
+                border: 2px solid black;
+            }
+            .li
+            {
+                border : 3px solid black;
+            }
+        </style>
+    </head>
+    <body class = "block">
+        <h1 class="header">Welcome to the DOM World</h1>
+        <p class="p" id="P1">This Program created by me for the Deeper Understanding of DOM in Javascript</p>
+        <p class ="p">DOM (Document object Model) it act as a interface between HTML and Javascript.</p>
+        <p class="p" id="P2">It helps Javascript to changing and manipulating HTML Elements.</p>
+        <h1 class="header">Enter into the Description..</h1>
+
+        <ul class="li">
+            <li>DOM</li>
+            <li>Event Handling</li>
+            <li>Error Handling</li>
+        </ul>
+        <script>
+            //Using DOM Selecting Elements
+            //Using document.getElementById for select the unique element by its ID
+            const sample1 = document.getElementById("P1");
+            sample1.style.color = "red";//For changing the styles of css , we use DOM
+            sample1.style.fontFamily = "sans-serif";
+
+            //Using document.getElementsByClassName for selecting the multiple elements
+            const sample2 = document.getElementsByClassName("p");
+            sample2[1].style.color = "purple";
+            sample2[1].style.fontFamily = "sans-serif";
+
+            //Using document.getElementsByTagName for selecting the elements
+            const sample3 = document.getElementsByTagName("h1");
+            sample3[1].style.color = "Yellow";
+            sample3[1].textContent = "DOM helps to Javascript to changing and interacting with html elements."
+
+            //Using document.querySelector for selecting the first element
+            const sample4 = document.querySelector("#P2");
+            console.log(sample4.textContent);
+
+            //Using document.querySelectorAll for selecting the entire elements ie)all elements from list
+            const sample5 = document.querySelectorAll("li");
+            sample5.forEach( (list) => {
+                list.style.color = "red";
+
+            });
+        </script>
+    </body>
+</html>
