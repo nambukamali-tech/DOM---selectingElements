@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>
+            DOM Event Listeners
+        </title>
+    </head>
+    <body>
+        <h1>Welcome to See the Event Listeners in JS</h1>
+        <input type="text" id="user">Enter the UserName:<br><br>
+        <input type="text" id="pwd">Enter the Password:<br><br>
+        <button type="button" id="btn1">SUBMIT</button>
+
+        <script>
+          const EventDone =  document.getElementById("btn1")//Getting the specific elements by using their "ID"
+          const t1 = document.getElementById("user");
+          const t2 = document.getElementById("pwd");
+          EventDone.addEventListener('click', function() //EventListeners() used to perform event when i click the button 
+                                                          // Here 'click' event is performed.
+          {
+            if(t1.value.length === 0 && t2.value.length === 0)//Condition to check the availability of values entered in textbox
+            {
+            alert('Dear User, Please Enter the valid Info!!');
+            }
+            else{
+                alert('Information Recorded Successfully!!');
+            }
+          });
+        </script>
+    </body>
+</html>
