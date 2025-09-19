@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>DOM Sample - Changing Themes</title>
+        <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bolder;
+            margin: 0px;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;/*property set the transition only for 0.3 seconds.*/
+        }
+        button{
+            border: 4px solid black;
+            text-align: center;
+            font-weight: bolder;
+        }
+        body.light
+        {
+            background-color: white;
+            color: black;
+        }
+        body.dark
+        {
+            background-color: black;
+            color: white;
+        }
+        </style>
+    </head>
+    <body class="light">
+        <div>
+            <h1>Welcome to See the Magic of Black & White Themes</h1>
+            <button id="themeBtn">Switch to Dark Theme</button>
+        </div>
+        <script>
+            const body = document.body;
+            const clickbtn = document.getElementById('themeBtn');
+            
+            clickbtn.addEventListener( 'click',() => //Here the 'click' Event is presented in arrow function
+        {
+            body.classList.toggle('dark');
+            body.classList.toggle('light');//Toggle() simply done if the class is present it remove , if not present it adds
+            // Here the dark class is present it change to 'light'
+            //If the light is present it changes to 'dark'
+                   if(body.classList.contains('dark'))//contains() checks if the dark class is present or not.
+                {
+                   clickbtn.textContent = "Switch to Light Theme";    
+                   alert('Hey, You are move to Dark Theme');  
+                }
+                else
+                {
+                    clickbtn.textContent = "Switch to Dark Theme";
+                    alert(`Hey,You are move to Light Theme`);
+                }
+        }); 
+        </script>
+    </body>
+</html>
