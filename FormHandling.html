@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>Form Handling in Javascript</title>
+        <style>
+            body{
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: medium;
+                font-weight: bolder;
+                background-color: burlywood;
+                display: flex;
+                flex-direction: column;/*property keep the header center above the form*/
+                align-items: center;      /* Center horizontally */
+                justify-content: flex-start; 
+                min-height: 100vh; /*Full Screen Height*/
+                margin: 0;
+            }
+            button
+            {
+                border: 3px solid black;
+                background-color: cornflowerblue;
+            }
+            label{
+                font-size: medium;
+                font-weight: bolder;
+                display: block;
+            }
+            .formDesign
+            {
+                text-align: center;
+                margin: 0px;
+                margin-top: 60px;
+                padding: auto;
+                background-color: darkgray;
+                border: 8px solid black;
+                width: 450px;
+                height: 400px;
+            }
+            .para
+            {
+                justify-self: auto;
+                text-align: center;
+                color: brown;
+            }
+            .header
+            {
+                text-align: center;
+                font-weight: bold;
+            }
+            #output
+            {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body class="body">
+        <h1 class = "header">WELCOME TO JAY KAY SOAPS</h1>
+        <form id = "purchaseForm" class="formDesign">
+            <p class="para">PURCHASE FORM</p>
+            <label>
+             Enter the Item Name  <input type = "text" id = "item" required>
+            </label><br><br>
+
+            <label>
+            Enter the Quantity  <input type="number" id ="qty" required>
+            </label><br><br>
+
+            <label>
+           Enter the Amount <input type="number" id ="price" required>
+            </label><br><br>
+
+            <label>
+              Enter the Address <input type ="text" id = "address" required>
+            </label><br><br><br>
+
+            <button class="button">SUBMIT</button>&nbsp;&nbsp;
+             <button class="button" id="exit">EXIT</button>
+            
+        </form>
+        <div id="output" class="para"></div>
+        <script>
+            const getForm = document.getElementById('purchaseForm');//Selecting the Form Element
+            const ExitBtn = document.getElementById('exit');
+
+            getForm.addEventListener('submit',(e) =>{  //Add 'submit' Event to the Form
+               e.preventDefault();//Function prevent the page from automatic Reload after click the 'submit'
+               const itemName = document.getElementById("item").value;//Get all the elements from the HTML to Script.
+               const itemQuantity = document.getElementById("qty").value;//''.value' get the inputs from the user.
+               const itemAmount = document.getElementById("price").value;
+               const addr = document.getElementById("address").value;
+
+               //Access the Output 'Id' to print the details below the form
+               const result = document.getElementById("output");
+
+               //Using condition to check the Existence of Element values
+               if(itemName && itemQuantity && itemAmount && addr)
+               {
+                result.innerHTML = `Purchase Done Successfully , Your List is here
+                ItemName : ${itemName}, Quantity : ${itemQuantity}, Rate : ${itemAmount}`;
+               }
+               else{
+                result.innerHTML = `Please Enter the Required Fields`;
+               }
+             getForm.reset();//Reset the TextBox to old state
+            });
+            //addEventListener to 'Exit' Button
+             ExitBtn.addEventListener('click', () =>
+            {
+                alert(`Thankyou for Shopping ! Visit us Again !`);
+            });
+        </script>
+    </body>
+</html>
